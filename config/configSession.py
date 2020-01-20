@@ -1,5 +1,6 @@
 import logging
 import os
+import git
 
 
 CONF = {
@@ -41,6 +42,11 @@ CONF = {
         }
     }
 }
+
+# get current git
+repo = git.Repo(search_parent_directories=True)
+CONF["gitHash"] = repo.head.object.hexsha
+
 
 if CONF["version"] == "main":
     CONF.update({
