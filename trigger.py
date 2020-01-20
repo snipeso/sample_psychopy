@@ -49,6 +49,9 @@ class Trigger:
 
 BASE = 63  # this because BrainAmp uses 255 for reset; otherwise would have used 64
 
+# What we do: the first digit of a trigger indicates if its a normal trigger(0) or if its part of an ID number (1).
+# The second digit indicates if it is one of many (0) or the last number of a trigger ID sequence (1)
+
 
 def id2triggers(i):
     if i < 0:

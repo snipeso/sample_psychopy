@@ -11,20 +11,9 @@ class Scorer:
     def getScore(self):
         print("+++++++++++++++++++++++++++++++++++++++++++")
         for key in self.scores.keys():
-
             self._printScore(key, self.scores[key])
 
         print("+++++++++++++++++++++++++++++++++++++++++++")
 
     def _printScore(self, name, score):
         print(name, score)
-
-    def newAnswer(self, response):
-        if response in ["missed", "BadResponse"]:
-            self.scores["missed"] += 1
-        elif response == "CorrectAnswer":
-            self.scores["correct"] += 1
-        elif response == "IncorrectAnswer":
-            self.scores["incorrect"] += 1
-
-        self.scores["tot"] += 1
