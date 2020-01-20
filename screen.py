@@ -41,7 +41,7 @@ class Screen:
         self.session = visual.TextStim(self.window,
                                        text="P" + CONF["participant"] +
                                        " Session " + CONF["session"],
-                                       pos=[.75, -.3],  # TEMP
+                                       pos=(0, -3),  # TEMP
                                        height=.5,
                                        alignHoriz='center',
                                        alignVert='center',
@@ -52,7 +52,7 @@ class Screen:
             self.window, text=CONF["instructions"]["text"], height=.5, units="cm")
 
         self.startPrompt = visual.TextStim(
-            self.window, text=CONF["instructions"]["startPrompt"], height=.5, units="cm", pos=[0, -2])
+            self.window, text=CONF["instructions"]["startPrompt"], height=.5, units="cm", pos=(0, -CONF["screen"]["size"][1]/2+3))
 
         self.cue = visual.TextStim(self.window)
 
