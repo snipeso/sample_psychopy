@@ -72,11 +72,17 @@ This is needed so you can start the experiment from wherever in the terminal.
 
 1. Make sure there is the file exp-sample
 2. Run `code ~/.bashrc` in terminal
-3. Add at the bottom: `export PATH=~/Projects/match2sample/:$PATH`
-4. Give permission to use that file: `chmod +x Projects/hemi-pvt/exp-sample`
+3. Add at the bottom: `export PATH=~/Projects/sample_psychopy/:$PATH` and save
+4. Give permission to use that file: `chmod +x Projects/sample_psychopy/exp-sample`
 5. Start a new window to see if it worked
 
 Then from a new terminal, you can run directly `exp-match2sample` and it starts!
+
+### Get monitor settings
+
+#### Linux
+
+1. Run `xrandr` in terminal
 
 ## How to run
 

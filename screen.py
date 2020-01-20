@@ -12,15 +12,14 @@ class Screen:
     def __init__(self, CONF):
         self.CONF = CONF
 
-        # fetch the most recent calib for this monitor
-        mon = monitors.Monitor('tesfgft')
+        # set monitor parameters
+        mon = monitors.Monitor('tesfgft')  # random string name
         mon.setWidth(CONF["screen"]["size"][0])
         mon.setSizePix(CONF["screen"]["resolution"])
 
         self.window = visual.Window(
             size=CONF["screen"]["resolution"],
             color=CONF["pause"]["backgroundColor"] or "black",
-            # display_resolution=CONF["screen"]["resolution"],
             monitor=mon,
             fullscr=CONF["screen"]["full"],
             allowGUI=True,
