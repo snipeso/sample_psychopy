@@ -35,7 +35,7 @@ kb = keyboard.Keyboard()
 
 mainClock = core.MonotonicClock()  # starts clock for timestamping events
 
-Alarm = sound.Sound(os.path.join('sounds', CONF["instructions"]["alarm"]),
+Alarm = sound.Sound(os.path.join('sounds', CONF["sounds"]["alarm"]),
                     stereo=True)
 scorer = Scorer()
 
@@ -74,6 +74,7 @@ screen.show_overview()
 core.wait(CONF["timing"]["overview"])
 
 # Optionally, display instructions
+print(CONF["showInstructions"], CONF["version"])
 if CONF["showInstructions"]:
     screen.show_instructions()
     key = event.waitKeys()
