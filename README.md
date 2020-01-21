@@ -47,7 +47,7 @@ Make env (recommended into a general projects folder so can use for other experi
 
 1. Create in folder `pyvenv psychopyEnv`
 2. Activate with `source psychopyEnv/bin/activate`
-3. Install requirements: `pip install requirements.txt`
+3. Install requirements: `pip install -r requirements.txt`
 
 If psychopy has problems, just download all of these:
 
@@ -126,3 +126,5 @@ From anywhere (needs to setup shortcut first):
 Sounds:
 
 - horn.wav: https://freesound.org/people/mcpable/sounds/131930/
+
+# TODO: remove psychtoobox
