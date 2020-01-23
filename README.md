@@ -14,9 +14,10 @@ This file dictates what each experiment really does, what it shows when, etc.
 
 ### config
 
-This is a folder with multiple configurations, some of which are additions to the main configuration configSession.py, which should be identical for all tasks in the same experiment.
+This is a folder with multiple configurations. configSession.json (needs to be called this) should include any information that is not task specific and could be shared with different tasks (and thus saved somewhere else, like a common folder). configSample.py updates the json with task specific-configurations, as well as implements version-specific parameters. updateConfig is a class that processes the json file, and applies pythony things to it, as well as lets you update content, like the triggers.
 
-Specifies all the variables. ALL of them! They are saved in a dictionary, approximately grouping things by theme.
+Versions
+In the json, specify a version; then the python configuration file will select the appropriate values based on the specified version. There must always be a "main" version, and then whatever else you want. I use "debug" for making a small window, and "demo" for showing experiments with shorter timing.
 
 ### screen
 
@@ -98,12 +99,12 @@ From anywhere (needs to setup shortcut first):
 1. Configure participant and session: `export participant=P00 session=0`
 2. Run specific task: `exp-sample`
 
-### Windows (booo)
+### Windows
 
 1. Open psychopy
 2. Open visual studio code (or similar)
-   - modify participant ID and session, save
-3. Open "main.py" for this experiment
+   - modify participant ID and session in the configSession.json, save
+3. Open "mainSample.py" for this experiment
 4. Click the green run button
 
 ## How to check that everything works
