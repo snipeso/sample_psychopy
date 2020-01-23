@@ -1,4 +1,3 @@
-import os
 from config.updateConfig import UpdateConfig
 
 sampleCONF = {

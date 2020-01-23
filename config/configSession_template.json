@@ -1,5 +1,5 @@
 {
-  "participant": "",
+  "participant": "00",
   "session": "0",
   "version": "demo",
   "#COMMENTavailableVersions": ["main", "demo", "debug"],
