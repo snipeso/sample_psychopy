@@ -1,11 +1,4 @@
-import random
-import os
-import numpy as np
-import random
-
-from psychopy import visual, core, event, monitors
-from psychopy.hardware import keyboard
-from psychopy.visual import textbox
+from psychopy import visual, monitors
 
 
 class Screen:

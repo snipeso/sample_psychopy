@@ -21,7 +21,7 @@
   },
   "showInstructions": {
     "versionMain": true,
-    "versionDemo": false,
+    "versionDemo": true,
     "versionDebug": false
   },
   "timing": {
