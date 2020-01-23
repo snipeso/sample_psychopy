@@ -35,7 +35,7 @@ kb = keyboard.Keyboard()
 
 mainClock = core.MonotonicClock()  # starts clock for timestamping events
 
-Alarm = sound.Sound(os.path.join('sounds', CONF["sounds"]["alarm"]),
+Alarm = sound.Sound(os.path.join('sounds', CONF["instructions"]["alarm"]),
                     stereo=True)
 scorer = Scorer()
 
@@ -54,6 +54,7 @@ def quitExperimentIf(shouldQuit):
         trigger.send("Quit")
         scorer.getScore()
         logging.info('quit experiment')
+        trigger.reset()
         sys.exit(2)
 
 

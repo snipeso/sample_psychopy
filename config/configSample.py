@@ -7,13 +7,11 @@ sampleCONF = {
     "instructions": {
         "text": "Give instructions",
         "startPrompt": "Press any key to continue. Press q to quit.",
+        "alarm": "horn.wav",
     },
     "stimuli": {
         "backgroundColor": {"versionMain": "black", "versionDemo": "blue", "versionDebug": "gray"},
     },
-    "sounds": {
-        "alarm": "horn.wav",
-    }
 }
 
 sampleTriggers = {
