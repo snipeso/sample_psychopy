@@ -30,7 +30,9 @@ class Screen:
                                     )
         self.session = visual.TextStim(self.window,
                                        text="P" + CONF["participant"] +
-                                       " Session " + CONF["session"],
+                                       " Session " +
+                                       CONF["session"] + " " +
+                                       CONF["version"],
                                        pos=CONF["instructionSizes"]["sessionPos"],
                                        height=CONF["instructionSizes"]["sessionHeight"],
                                        alignHoriz='center',
