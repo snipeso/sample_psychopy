@@ -100,6 +100,10 @@ core.wait(CONF["timing"]["cue"])
 #################
 
 # customize
+datalog["trialID"] = trigger.sendTriggerId()
+
+# save data to file
+datalog.flush()
 
 ###########
 # Concluion
