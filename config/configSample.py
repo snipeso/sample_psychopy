@@ -8,6 +8,7 @@ sampleCONF = {
         "text": "Give instructions",
         "startPrompt": "Press any key to continue. Press q to quit.",
         "alarm": "horn.wav",
+        "questionnaireReminder": "answerQuestionnaire.wav"
     },
     "stimuli": {
         "backgroundColor": {"versionMain": "black", "versionDemo": "blue", "versionDebug": "gray"},
