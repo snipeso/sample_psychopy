@@ -86,7 +86,6 @@ screen.show_overview()
 core.wait(CONF["timing"]["overview"])
 
 # Optionally, display instructions
-print(CONF["showInstructions"], CONF["version"])
 if CONF["showInstructions"]:
     screen.show_instructions()
     key = event.waitKeys()
