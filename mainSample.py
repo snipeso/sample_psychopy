@@ -11,7 +11,7 @@ from scorer import Scorer
 from trigger import Trigger
 from psychopy import core, event, sound
 from psychopy.hardware import keyboard
-
+from pupil_labs import PupilCore
 from datalog import Datalog
 from config.configSample import CONF
 
@@ -25,11 +25,19 @@ logging.basicConfig(
     format='%(asctime)s-%(levelname)s-%(message)s',
 )  # This is a log for debugging the script, and prints messages to the terminal
 
+# needs to be first, so that if it doesn't succeed, it doesn't freeze everything
+eyetracker = PupilCore(ip=CONF["pupillometry"]
+                       ["ip"], port=CONF["pupillometry"]["port"], shouldRecord=CONF["recordEyetracking"])
+
+
+trigger = Trigger(CONF["trigger"]["serial_device"],
+                  CONF["sendTriggers"], CONF["trigger"]["labels"])
+
 screen = Screen(CONF)
 
 datalog = Datalog(OUTPUT_FOLDER=os.path.join(
-    'output', datetime.datetime.now(
-    ).strftime("%Y-%m-%d")), CONF=CONF)  # This is for saving data
+    'output', CONF["participant"] + "_" + CONF["session"],
+    datetime.datetime.now().strftime("%Y-%m-%d")), CONF=CONF)  # This is for saving data
 
 kb = keyboard.Keyboard()
 
@@ -43,8 +51,6 @@ questionnaireReminder = sound.Sound(os.path.join(
 
 scorer = Scorer()
 
-trigger = Trigger(CONF["trigger"]["serial_device"],
-                  CONF["sendTriggers"], CONF["trigger"]["labels"])
 
 logging.info('Initialization completed')
 
@@ -58,6 +64,7 @@ def quitExperimentIf(shouldQuit):
         trigger.send("Quit")
         scorer.getScore()
         logging.info('quit experiment')
+        eyetracker.stop_recording()
         trigger.reset()
         sys.exit(2)
 
@@ -85,6 +92,10 @@ if CONF["showInstructions"]:
     key = event.waitKeys()
     quitExperimentIf(key[0] == 'q')
 
+
+eyetracker.start_recording()
+
+
 # Blank screen for initial rest
 screen.show_blank()
 logging.info('Starting blank period')
@@ -105,6 +116,9 @@ core.wait(CONF["timing"]["cue"])
 
 # customize
 datalog["trialID"] = trigger.sendTriggerId()
+eyetracker.send_trigger("Stim", {"id": 1, "condition": "sample"})
+
+datalog["pupilSize"] = eyetracker.getPupildiameter()
 
 # save data to file
 datalog.flush()
@@ -130,6 +144,7 @@ trigger.send("EndBlank")
 logging.info('Finished')
 scorer.getScore()
 trigger.reset()
+eyetracker.stop_recording()
 
 questionnaireReminder.play()
 core.wait(2)

@@ -1,4 +1,5 @@
 import serial
+import parallel
 import time
 import logging
 
@@ -10,7 +11,10 @@ class Trigger:
         self._labels = labels
         print(shouldTrigger)
         if shouldTrigger:
-            self._port = serial.Serial(serial_device)
+            if "COM" in serial_device:
+                self._port = serial.Serial(serial_device)
+            else:
+                self._port = parallel.Parallel()
 
         self.shouldTrigger = shouldTrigger
 
