@@ -85,6 +85,19 @@ Then from a new terminal, you can run directly `exp-match2sample` and it starts!
 
 1. Run `xrandr` in terminal
 
+### setting up pupillometry
+
+You need a seperate computer and a common network for both stimulus and eye tracking computer
+
+1. make sure you have all the pupillometry software
+2. Start up Pupil Capture, and make sure you have the "Annotation Capture" extension
+3. Find out what is the pupillometry computer IP address:
+   a. go to the little wifi menu in the bottom right corner
+   b. on the network you're in, click on "Properties" and scroll down to where the ip address is listed
+4. copy the IP address to the main configurations file
+
+Whenever recording pupillometry, just make sure Pupil Capture is open
+
 ## How to run
 
 ### Linux

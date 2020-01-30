@@ -93,7 +93,8 @@ if CONF["showInstructions"]:
     quitExperimentIf(key[0] == 'q')
 
 
-eyetracker.start_recording()
+eyetracker.start_recording(os.path.join(
+    CONF["participant"], CONF["session"], CONF["task"]["name"]))
 
 
 # Blank screen for initial rest
