@@ -37,6 +37,13 @@ This is optional, it lets you easily keep track of participant performance, so t
 
 ## Setup Instructions (Linux)
 
+### Just copying this sample to start a new project
+
+1. Run `cp -r {sample project folder} {new project folder}`
+2. From inside the new project folder, remove the sample git stuff: `rm -rf .git`
+3. Run `git init`
+4. Make a repository on git, and push this repository to it
+
 ### Setting up env
 
 Copy local env:
